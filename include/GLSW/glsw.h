@@ -29,6 +29,7 @@ namespace GLSW {
 	GLint glswLoadStockShader(GLint shader_id, GLuint shader) __attribute__((warn_unused_result));
 	GLint glswLoadShaderSrc(const char *szShaderSrc, GLuint shader) __attribute__((warn_unused_result));
 	GLint glswLoadShaderFile(const char *szFile, GLuint shader) __attribute__((warn_unused_result));
+	GLint glswLinkProgram(GLuint program) __attribute__((warn_unused_result));
 }
 
 #endif
