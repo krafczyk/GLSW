@@ -123,6 +123,17 @@ namespace GLSW {
 	
 		fsStringPtr[0] = (GLchar *)szShaderSrc;
 		glShaderSource(shader, 1, (const GLchar **)fsStringPtr, NULL);
+
+		glCompileShader(shader);
+
+		GLint status;
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
+		if(status == GL_FALSE) {
+			char infoLog[1024];
+			glGetShaderInfoLog(shader, 1024, NULL, infoLog);
+			glswSetError("Couldn't compile the shader!\n%s\n", infoLog);
+			return -1;
+		}
 		return 0;
 	}
 
